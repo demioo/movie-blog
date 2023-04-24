@@ -1,5 +1,7 @@
 <script>
 	import '../app.css';
+
+	export let data;
 </script>
 
 <main class="bg-white text-black">
