@@ -1,4 +1,4 @@
-import contentfulFetch from '$lib/contentful-fetch';
+import { contentfulFetch } from '$lib/contentful/contentful-fetch';
 import { error } from '@sveltejs/kit';
 import type { BlogPost } from '../generated/graphql';
 
@@ -19,7 +19,7 @@ const query = `
 `;
 
 export async function load() {
-	const response = await contentfulFetch(query);
+	const response = await contentfulFetch({ query });
 
 	if (!response.ok) {
 		throw error(404, {

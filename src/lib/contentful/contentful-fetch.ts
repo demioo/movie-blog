@@ -1,6 +1,10 @@
 import { CONTENTFUL_DELIVERY_API_TOKEN, CONTENTFUL_SPACE_ID } from '$env/static/private';
 
-const contentfulFetch = async (query: string) => {
+type ContentfulFetch = {
+	query: string;
+};
+
+export const contentfulFetch = async ({ query }: ContentfulFetch) => {
 	const url = 'https://graphql.contentful.com/content/v1/spaces/' + CONTENTFUL_SPACE_ID;
 
 	const response = await fetch(url, {
@@ -14,5 +18,3 @@ const contentfulFetch = async (query: string) => {
 
 	return response;
 };
-
-export default contentfulFetch;
